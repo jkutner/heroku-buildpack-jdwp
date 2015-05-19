@@ -11,6 +11,7 @@ BP_DIR=${BP_DIR:-$(cd $(dirname ${BASH_SOURCE[0]}) && cd .. && pwd )}
 mkdir -p $BUILD_DIR/.heroku/jdwp/bin
 cp $BP_DIR/opt/java $BUILD_DIR/.heroku/jdwp/bin/java_debug
 
+mkdir -p $BUILD_DIR/.profile.d
 cat << EOF > $BUILD_DIR/.profile.d/jdwp.sh
 export PATH=$BUILD_DIR/.heroku/jdwp/bin:\$PATH
 EOF
