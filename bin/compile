@@ -8,10 +8,12 @@ export BUILD_DIR=$1
 
 BP_DIR=${BP_DIR:-$(cd $(dirname ${BASH_SOURCE[0]}) && cd .. && pwd )}
 
+echo -n "-----> Installing Java debug script..."
 mkdir -p $BUILD_DIR/.heroku/jdwp/bin
 cp $BP_DIR/opt/java $BUILD_DIR/.heroku/jdwp/bin/java_debug
+echo " done"
 
 mkdir -p $BUILD_DIR/.profile.d
 cat << EOF > $BUILD_DIR/.profile.d/jdwp.sh
-export PATH=$BUILD_DIR/.heroku/jdwp/bin:\$PATH
+export PATH=\$HOME/.heroku/jdwp/bin:\$PATH
 EOF
