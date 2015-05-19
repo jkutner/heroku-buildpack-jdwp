@@ -8,10 +8,6 @@ export BUILD_DIR=$1
 
 BP_DIR=${BP_DIR:-$(cd $(dirname ${BASH_SOURCE[0]}) && cd .. && pwd )}
 
-BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
-. $BIN_DIR/java
-. $BIN_DIR/util
-
 mkdir -p $BUILD_DIR/.heroku/jdwp/bin
 cp $BP_DIR/opt/java $BUILD_DIR/.heroku/jdwp/bin/java_debug
 
