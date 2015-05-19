@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+debug_port=8998
+
+if [ -z "$NGROK_API_TOKEN" ]; then
+  echo "You must set the NGROK_API_TOKEN config var to create a TCP tunnel!"
+  exit 1
+fi
+
+# Start the TCP tunnel
+ngrok_cmd="bin/ngrok -authtoken ${NGROK_API_TOKEN} -log stdout ${NGROK_OPTS} -proto=tcp ${debug_port}"
+echo "Starting ngrok..."
+eval "$ngrok_cmd &"
+ngrok_pid=$!
+
+export JAVA_TOOL_OPTIONS="${JAVA_TOOL_OPTIONS} -Xdebug -Xrunjdwp:transport=dt_socket,address=${debug_port},server=y"
+
+trap "kill $ngrok_pid" SIGTERM
+trap "kill -9 $ngrok_pid; exit" SIGKILL
+
+$JAVA_HOME/bin/java $@
