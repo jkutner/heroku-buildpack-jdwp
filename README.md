@@ -59,7 +59,7 @@ Initializing jdb ...
 >
 ```
 
-Then you can use it and stuff:
+Now you can use it and stuff:
 
 ```sh-session
 > methods my.company.MainServlet
