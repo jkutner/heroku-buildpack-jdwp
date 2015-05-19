@@ -20,7 +20,7 @@ echo "done"
 
 echo -n "-----> Installing Java debug script..."
 mkdir -p $BUILD_DIR/.heroku/jdwp/bin
-cp $OPT_DIR/java $BUILD_DIR/.heroku/jdwp/bin/with_jdwp
+cp $OPT_DIR/with_jdwp $BUILD_DIR/.heroku/jdwp/bin/with_jdwp
 chmod +x $BUILD_DIR/.heroku/jdwp/bin/with_jdwp
 echo " done"
 
