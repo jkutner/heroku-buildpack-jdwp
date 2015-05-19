@@ -73,6 +73,8 @@ javax.servlet.ServletConfig getInitParameter(java.lang.String)
 javax.servlet.ServletConfig getInitParameterNames()
 ```
 
+Or just use your favorite IDE.
+
 ## Customizing
 
 You can customize the execution of ngrok by setting the `NGROK_OPTS` config var like so:
