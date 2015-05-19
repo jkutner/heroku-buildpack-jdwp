@@ -49,6 +49,30 @@ this in your logs:
 2015-05-19T16:06:37.052977+00:00 app[web.1]: [05/19/15 16:06:37] [INFO] [client] Tunnel established at tcp://ngrok.com:39678
 ```
 
+Then you can connect to the process using the ngrok URL. For example:
+
+```sh-session
+$ jdb -attach ngrok.com:39678
+$ jdb -attach ngrok.com:53607
+Set uncaught java.lang.Throwable
+Set deferred uncaught java.lang.Throwable
+Initializing jdb ...
+>
+```
+
+Then you can use it and stuff:
+
+```sh-session
+> methods my.company.MainServlet
+...
+javax.servlet.Servlet service(javax.servlet.ServletRequest, javax.servlet.ServletResponse)
+javax.servlet.Servlet getServletInfo()
+javax.servlet.Servlet destroy()
+javax.servlet.ServletConfig getServletName()
+javax.servlet.ServletConfig getServletContext()
+javax.servlet.ServletConfig getInitParameter(java.lang.String)
+javax.servlet.ServletConfig getInitParameterNames()
+```
 
 ## Customizing
 
