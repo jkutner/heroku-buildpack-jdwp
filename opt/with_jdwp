@@ -13,8 +13,8 @@ echo "Starting ngrok..."
 eval "$ngrok_cmd &"
 ngrok_pid=$!
 
-jdwpOpts=${JDWP_OPTS:-"transport=dt_socket,server=y,suspend=n"}
+jdwpOpts=${JDWP_OPTS:-"server=y,suspend=n"}
 
-export JAVA_TOOL_OPTIONS="${JAVA_TOOL_OPTIONS} -Xdebug -Xrunjdwp:address=$debug_port,${jdwpOpts}"
+export JAVA_TOOL_OPTIONS="${JAVA_TOOL_OPTIONS} -Xdebug -Xrunjdwp:transport=dt_socket,address=$debug_port,${jdwpOpts}"
 
 eval "$@"

@@ -63,5 +63,5 @@ You can also add a `.ngrok` to your app.
 You can customize the JDWP settings with the `JDWP_OPTS` config var. For example:
 
 ```
-$ heroku config:set JDWP_OPTS="transport=dt_socket,server=y,suspend=y"
+$ heroku config:set JDWP_OPTS="server=y,suspend=y"
 ```
