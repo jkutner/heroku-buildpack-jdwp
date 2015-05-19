@@ -18,4 +18,4 @@ export JAVA_TOOL_OPTIONS="${JAVA_TOOL_OPTIONS} -Xdebug -Xrunjdwp:transport=dt_so
 trap "kill $ngrok_pid" SIGTERM
 trap "kill -9 $ngrok_pid; exit" SIGKILL
 
-$JAVA_HOME/bin/java $@
+eval "$@"
