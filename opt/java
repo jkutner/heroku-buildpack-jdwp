@@ -15,7 +15,4 @@ ngrok_pid=$!
 
 export JAVA_TOOL_OPTIONS="${JAVA_TOOL_OPTIONS} -Xdebug -Xrunjdwp:transport=dt_socket,address=${debug_port},server=y,suspend=n"
 
-trap "kill $ngrok_pid" SIGTERM
-trap "kill -9 $ngrok_pid; exit" SIGKILL
-
 eval "$@"
